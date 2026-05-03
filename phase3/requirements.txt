@@ -1,0 +1,5 @@
+rainbow
+h5py
+numpy
+matplotlib
+tqdm

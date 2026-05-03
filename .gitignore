@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Build artifacts
+phase2/test_native
+phase2/ascon128.o
+phase2/ascon128.elf
+
+# Generated data
+phase3/*.h5
+phase3/plots/
+
+# Phase 4 outputs
+phase4_colab/*.h5
+phase4_colab/*.png
+
+# Submission output
+submission/node_modules/
+submission/Lab11_Submission.docx
