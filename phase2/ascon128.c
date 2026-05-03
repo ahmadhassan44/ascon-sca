@@ -15,7 +15,7 @@ static void store64(uint8_t *b, uint64_t v) {
 
 #define ROTR(x,n) (((x)>>(n))|((x)<<(64-(n))))
 
-void ascon_sbox(ascon_state_t *s) {
+__attribute__((noinline)) void ascon_sbox(ascon_state_t *s) {
     uint64_t t0, t1, t2, t3, t4;
     s->x[0] ^= s->x[4]; s->x[4] ^= s->x[3]; s->x[2] ^= s->x[1];
     t0=s->x[0]; t1=s->x[1]; t2=s->x[2]; t3=s->x[3]; t4=s->x[4];
@@ -28,7 +28,7 @@ void ascon_sbox(ascon_state_t *s) {
     s->x[3] ^= s->x[2]; s->x[2] = ~s->x[2];
 }
 
-static void ascon_linear(ascon_state_t *s) {
+__attribute__((noinline)) void ascon_linear(ascon_state_t *s) {
     s->x[0] ^= ROTR(s->x[0],19) ^ ROTR(s->x[0],28);
     s->x[1] ^= ROTR(s->x[1],61) ^ ROTR(s->x[1],39);
     s->x[2] ^= ROTR(s->x[2], 1) ^ ROTR(s->x[2], 6);
